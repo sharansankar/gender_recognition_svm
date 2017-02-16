@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="49234974-6ae6-4258-b63a-cb20a0615b4a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/training_data.csv" />
-    </list>
+    <list default="true" id="49234974-6ae6-4258-b63a-cb20a0615b4a" name="Default" comment="" />
     <ignored path="gender_recognition_svm.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
