@@ -24,4 +24,13 @@ Given the lack of audio processing tools accessible in python, there were only a
 Thus we can see here a clear separation from male and female data points. The data can easily be segmented by simply running a line through the middle and give us a pretty good accuracy. 
 
 ###Model Selection 
-From the above data, it appears the best possible 
+Given my familiarity with it, I have chosen to use an SVM binary classifier as primary model. A future iteration of this project would be to implement another algorithm and calculate accuracy. 
+
+###Hyperparameter Tuning 
+The first parameter that was tested was the SVM kernel type. The Kernels define the way of separating the data into dinstinct clusters. Linear kernel methods work by segmenting the data through linear boundaries, while polynomial and rbf methods segment the data using non-linear boundaries. The following shows the mean accuracies of each kernel method through cross-validation of 10 iterations using a training set composed of 60% of the data. 
+
+| Kernel Method  |Mean Accuracy |
+| ------------- | ------------- |
+| Linear  | 95.32%  |
+| rbf  | 94.78%  |
+| Polynomial | 50.63% | 
