@@ -31,14 +31,30 @@ def parameter_tuning_svm(input_df):
         scores = cross_val_score(svc, training, training_result, cv=10, scoring='accuracy')
         accuracy_vals.append(scores.mean())
 
-    plt.plot(c_vals, accuracy_vals)
-    plt.xticks(np.arange(0,30,2))
-    plt.xlabel('C values')
-    plt.ylabel('Mean Accuracies')
-    plt.show()
+    # plt.plot(c_vals, accuracy_vals)
+    # plt.xticks(np.arange(0,30,2))
+    # plt.xlabel('C values')
+    # plt.ylabel('Mean Accuracies')
+    # plt.show()
 
     optimal_cval = c_vals[accuracy_vals.index(max(accuracy_vals))]
     print optimal_cval
+
+    #gamma value tuning
+    gamma_vals = [0.00001,0.0001,0.001,0.01,0.1]
+    accuracy_vals = []
+    for g in gamma_vals:
+        svc = SVC(kernel='linear', C=optimal_cval, gamma=g)
+        scores = cross_val_score(svc, training, training_result, cv=10, scoring='accuracy')
+        accuracy_vals.append(scores.mean())
+
+    plt.plot(gamma_vals, accuracy_vals)
+    plt.xlabel('Gamma Values')
+    plt.ylabel('Mean Accuracies')
+    plt.show()
+
+    optimal_gamma = gamma_vals[accuracy_vals.index(max(accuracy_vals))]
+    print optimal_gamma
 
 if __name__ == '__main__':
     df =import_and_clean()
