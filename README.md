@@ -42,3 +42,5 @@ The next value to be tuned is the C value of the SVM. A SVM works to perform two
 
 The final parameter to be tuned is the gamma value. The gamma value dictates how solwly the svm converges to a value by setting the jump value. When tuning the gamma value, we found no significant change in accuracy with changes in the gamma val. Thus the gamma value of 0.00001 was chosen. 
 ![Gamma Values](docs/gamma_vals.png)
+
+After fine tuning the parameters, the SVM was then run on our testing set and found to have an accuracy of *95.66%. 
