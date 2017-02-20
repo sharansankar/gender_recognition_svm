@@ -27,10 +27,14 @@ Thus we can see here a clear separation from male and female data points. The da
 Given my familiarity with it, I have chosen to use an SVM binary classifier as primary model. A future iteration of this project would be to implement another algorithm and calculate accuracy. 
 
 ###Hyperparameter Tuning 
-The first parameter that was tested was the SVM kernel type. The Kernels define the way of separating the data into dinstinct clusters. Linear kernel methods work by segmenting the data through linear boundaries, while polynomial and rbf methods segment the data using non-linear boundaries. The following shows the mean accuracies of each kernel method through cross-validation of 10 iterations using a training set composed of 60% of the data. 
+The first parameter that was tested was the SVM kernel type. The Kernels define the way of separating the data into dinstinct clusters. Linear kernel methods work by segmenting the data through linear boundaries, while polynomial and rbf methods segment the data using non-linear boundaries. The following shows the mean accuracies of each kernel method through cross-validation of 10 iterations using a training set composed of 60% of the data. All other hyperparameters were set to default.
 
 | Kernel Method  |Mean Accuracy |
 | ------------- | ------------- |
 | Linear  | 95.32%  |
 | rbf  | 94.78%  |
 | Polynomial | 50.63% | 
+
+Thus as mentioned before, the data looked easily segmentable through a linear boundary. We can see here this stands true as the linear kernel method performs the best over all options. 
+
+
