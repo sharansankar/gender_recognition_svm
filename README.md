@@ -38,4 +38,7 @@ The first parameter that was tested was the SVM kernel type. The Kernels define 
 Thus as mentioned before, the data looked easily segmentable through a linear boundary. We can see here this stands true as the linear kernel method performs the best over all options. 
 
 The next value to be tuned is the C value of the SVM. A SVM works to perform two functions: to correctly separate the points and to create a hyperplane that maximises the separation between two groups. However it is not always the case that both can happen at the same time. The C value allows us to specify which of the two functions we prefer. In this case we simply need want the C value that gives us the highest accuracy: 
+![C values](docs/cvals.png)
 
+The final parameter to be tuned is the gamma value. The gamma value dictates how solwly the svm converges to a value by setting the jump value. When tuning the gamma value, we found no significant change in accuracy with changes in the gamma val. Thus the gamma value of 0.00001 was chosen. 
+![Gamma Values](docs/gamma_vals.png)
