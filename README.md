@@ -37,4 +37,5 @@ The first parameter that was tested was the SVM kernel type. The Kernels define 
 
 Thus as mentioned before, the data looked easily segmentable through a linear boundary. We can see here this stands true as the linear kernel method performs the best over all options. 
 
+The next value to be tuned is the C value of the SVM. A SVM works to perform two functions: to correctly separate the points and to create a hyperplane that maximises the separation between two groups. However it is not always the case that both can happen at the same time. The C value allows us to specify which of the two functions we prefer. In this case we simply need want the C value that gives us the highest accuracy: 
 
