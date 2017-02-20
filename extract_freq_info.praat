@@ -12,6 +12,6 @@ min = Get minimum: 0.0, duration, "Hertz", "Parabolic"
 max = Get maximum: 0.0, duration, "Hertz", "Parabolic"
 mean = Get mean: 0.0, duration, "Hertz"
 
-writeFileLine: "output.txt", min,", ",max, ", ", mean
+writeFileLine: "output.txt", mean,", ",min, ", ", max
 
 Quit

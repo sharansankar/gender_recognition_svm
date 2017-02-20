@@ -66,6 +66,10 @@ def parameter_tuning_svm(input_df):
     testing_predict = svc.predict(testing)
     print metrics.accuracy_score(testing_predict, testing_result)
 
+    svc = SVC(kernel='linear', C=optimal_cval, gamma=optimal_gamma)
+    svc.fit(x,y)
+    return svc
+
 def record_audio():
 
     CHUNK = 1024
@@ -105,7 +109,19 @@ def record_audio():
     wf.close()
 
 if __name__ == '__main__':
-    # df =import_and_clean()
-    # parameter_tuning_svm(df)
-    #record_audio()
+
+    record_audio()
     os.system('"Praat.app/Contents/MacOS/Praat" --run extract_freq_info.praat')
+    file = open('output.txt','r')
+    values = file.readline()
+    values = values.split(', ')
+    for x in range(0,3):
+        values[x] = float(values[x])/1000
+
+    df =import_and_clean()
+    tuned_svm = parameter_tuning_svm(df)
+    predictions = tuned_svm.predict(values)
+    if predictions == 0:
+        print "you are a female"
+    else:
+        print "you are a male"
