@@ -50,3 +50,6 @@ The final parameter to be tuned is the gamma value. The gamma value dictates how
 ![Gamma Values](docs/gamma_vals.png)
 
 After fine tuning the parameters, the SVM was then run on our testing set and found to have an accuracy of 95.66%. 
+
+##Results 
+Despite being trained on a publicly available training set, the model performs very well when guessing the gender of actual recordings of speech. I tested the performance of the model on 8 genuine recordings of the utterance "hello" by two different speakers (1 male, 1 female). The SVM correctly identified the gender in all 8 tests. Where the SVM begins to show faults is when gender is impersonated. On recordings where a female might pretend to sound like a male, the model consistently recognized the correct gender. However, when males pretended to sound like females, the SVM was not as consistent. Further testing must be done to give appropriate quantitative values. Likewise, the SVM also fails to detect the gender of a child. This is most likely since the training data set only contained points from adults. A more diverse data set could solve this problem. 
