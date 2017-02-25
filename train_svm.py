@@ -8,6 +8,7 @@ import numpy as np
 import pyaudio
 import wave
 import os
+import platform
 
 
 
@@ -59,12 +60,12 @@ def parameter_tuning_svm(input_df):
     # plt.show()
 
     optimal_gamma = gamma_vals[accuracy_vals.index(max(accuracy_vals))]
-    print optimal_gamma
+    #print optimal_gamma
 
     svc = SVC(kernel='linear', C=optimal_cval, gamma=optimal_gamma)
     svc.fit(training, training_result)
     testing_predict = svc.predict(testing)
-    print metrics.accuracy_score(testing_predict, testing_result)
+    #print metrics.accuracy_score(testing_predict, testing_result)
 
     svc = SVC(kernel='linear', C=optimal_cval, gamma=optimal_gamma)
     svc.fit(x,y)
@@ -111,13 +112,19 @@ def record_audio():
 if __name__ == '__main__':
 
     record_audio()
-    os.system('"Praat.app/Contents/MacOS/Praat" --run extract_freq_info.praat')
+    if platform.system() == 'Linux':
+        os.system('"Praat.exe" --run extract_freq_info.praat')
+    elif platform.system() == 'Windows':
+        os.system('"./Praat" --run extract_freq_info.praat')
+    else:
+        os.system('"Praat.app/Contents/MacOS/Praat" --run extract_freq_info.praat')
     file = open('output.txt','r')
     values = file.readline()
     values = values.split(', ')
     for x in range(0,3):
         values[x] = float(values[x])/1000
 
+    print "training and tuning svm"
     df =import_and_clean()
     tuned_svm = parameter_tuning_svm(df)
     predictions = tuned_svm.predict(values)
